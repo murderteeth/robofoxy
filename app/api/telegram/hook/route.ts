@@ -4,7 +4,6 @@ import '@/lib/global'
 import { NextRequest, NextResponse } from 'next/server'
 import TelegramBot from 'node-telegram-bot-api'
 import { TelegramWebHookSchema } from '@/lib/types'
-import { hasCommands } from '@/lib/commands'
 import * as agent from './agent'
 
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN ?? '')
@@ -13,9 +12,7 @@ export async function POST(request: NextRequest) {
   const hook = TelegramWebHookSchema.parse(await request.json())
   if (!hook.message?.text) { return NextResponse.json({ ok: 'ok' }) }
 
-  if (hasCommands(hook)) {
-    await bot.sendChatAction(hook.message.chat.id.toString(), 'typing')
-  }
+  await bot.sendChatAction(hook.message.chat.id.toString(), 'typing')
 
   try {
     const response = await agent.respond(hook)

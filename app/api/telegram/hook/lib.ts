@@ -1,4 +1,3 @@
-import { trimPrefix } from '@/lib/commands'
 import { TelegramWebHook } from '@/lib/types'
 import OpenAI from 'openai'
 
@@ -6,7 +5,7 @@ export function parseMessages(hooks: TelegramWebHook[]) {
   return hooks.map(hook => {
     const isAssistant = hook.message?.from.username === 'assistant'
     const role = isAssistant ? 'assistant' : 'user'
-    const message = trimPrefix(hook.message?.text ?? '')
+    const message = hook.message?.text ?? ''
     const content = isAssistant ? message : `[${hook.message?.from.username}]: ${message}`
     return { role, content } as OpenAI.ChatCompletionMessageParam
   })

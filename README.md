@@ -22,14 +22,10 @@ TELEGRAM_TOKEN = <configure a telegram bot by messaging @BotFather on telegram>
 ### dev env
 ```bash
 bun dev
+# open telegram and chat with your bot
 ```
 
 ### test
 ```bash
 bun test
-```
-
-open telegram chat with your bot
-```
-/foxy <your request>
 ```
