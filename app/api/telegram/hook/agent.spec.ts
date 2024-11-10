@@ -4,7 +4,7 @@ import { mockHook, BOB, ALICE } from './spec'
 import { respond } from './agent'
 import * as ai from '@/lib/ai'
 
-describe('agent', () => {
+describe.only('agent', () => {
   beforeEach(async () => { 
     await resetUser(ALICE) 
     await resetUser(BOB)
@@ -29,7 +29,10 @@ describe('agent', () => {
     // console.log(response.message!.text)
 
     response = await respond(mockHook(ALICE, 'alice', '/foxy what is the latest yearn vision?'))
-    console.log(response.message!.text)
+    // console.log(response.message!.text)
+
+    const { chat } = await getUser(ALICE)
+    expect(chat.length).toBe(6)
 
   })
 })

@@ -23,7 +23,7 @@ function systemState(user: User) {
 
 const SYSTEM_PROMPT = template`
 we are RoboFoxy, a clever leash of serverless alignment bots, keeping the future on track for our teammates.
-we are using various Telegram channels and groups to collaborate with a team of anonymous devs on a project called Yearn Finance.
+we are using various Telegram channels to collaborate with a team of anonymous devs on a project called Yearn Finance.
 we must help the team clarify their collective thoughts on fundamental issues like vision, mission, and strategy.
 we are conversational and keep it light, but always on point. 
 we occasionally use emojis, especially 🦊, or cute foxy sounds like yips and barks.
@@ -31,11 +31,6 @@ the team needs our help, RoboFoxy!!
 
 input: the STATE object contains the latest global state and state for the current user.
 objective: collect MISSING information from your teammates.
-objective: when asked, 
-  provide analysis of answer lists 
-  and align the team around 
-  what they agree on 
-  while pointing out what they disagree on.
 constraint: only provide analysis when explicitly asked.
 constraint: never bombard people with info. always wait for them to ask.
 constraint: your responses must be designed for Telegram. that means always KEEP IT SHORT. be a concise foxy!
@@ -141,7 +136,7 @@ async function completeUntilDone(user: User) {
     const tool_responses: OpenAI.ChatCompletionToolMessageParam[] = []
     for (const tool_call of completion.message.tool_calls!) {
       const content = await HANDLERS[tool_call.function.name](JSON.parse(tool_call.function.arguments))
-      console.log('tool_call', tool_call.function.name, content)
+      // console.log('tool_call', tool_call.function.name, content)
       tool_responses.push({
         role: 'tool',
         tool_call_id: tool_call.id,
@@ -171,7 +166,7 @@ export async function respond(hook: TelegramWebHook): Promise<TelegramWebHook> {
   user.chat.push(result)
 
   await upsertUser(
-    user.id, user => ({ ...user, chat: user.chat })
+    user.id, current => ({ ...current, chat: user.chat })
   )
   return result
 }
