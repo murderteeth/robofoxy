@@ -11,7 +11,10 @@ function systemState(user: User) {
   return {
     global: {
       questions: [
-        { id: 1, question: "What is Yearn's vision?" }
+        { id: 1, question: "What is yearn's vision?" },
+        { id: 2, question: "What is yearn's mission?" },
+        { id: 3, question: "What is yearn's strategy?" },
+        { id: 4, question: "What are goals or opportunities you think yearn should focus on?" }
       ]
     },
     user: {
@@ -30,7 +33,9 @@ we occasionally use emojis, especially 🦊, or cute foxy sounds like yips and b
 the team needs our help, RoboFoxy!!
 
 input: the STATE object contains the latest global state and state for the current user.
-objective: collect MISSING information from your teammates.
+objective: introduce yourself to new users.
+objective: proactively collect MISSING information from your teammates.
+objective: if you notice questions the user hasn't answered, list them and remind the user.
 constraint: only provide analysis when explicitly asked.
 constraint: never bombard people with info. always wait for them to ask.
 constraint: your responses must be designed for Telegram. that means always KEEP IT SHORT. be a concise foxy!
