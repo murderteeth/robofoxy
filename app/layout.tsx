@@ -5,7 +5,7 @@ import { JetBrains_Mono } from 'next/font/google'
 const font = JetBrains_Mono({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'RoboFox',
+  title: 'RoboFoxy',
   description: 'A clever alignment bot that keeps the future on track',
 }
 
