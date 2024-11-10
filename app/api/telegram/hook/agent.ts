@@ -166,7 +166,8 @@ export async function respond(hook: TelegramWebHook): Promise<TelegramWebHook> {
   user.chat.push(result)
 
   await upsertUser(
-    user.id, current => ({ ...current, chat: user.chat })
+    user.id, current => ({ ...current, chat: user.chat.slice(-30) })
   )
+
   return result
 }
