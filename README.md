@@ -1,6 +1,9 @@
 # RoboFoxy
 A clever alignment bot that keeps the future on track
 
+![image](https://github.com/user-attachments/assets/25a1148b-483d-4af3-a544-603e3524b074)
+
+
 ### setup
 1 - install
 ```bash
