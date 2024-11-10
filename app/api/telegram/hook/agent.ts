@@ -15,7 +15,8 @@ function systemState(user: User) {
         { id: 2, question: "What is yearn's mission?" },
         { id: 3, question: "What is yearn's strategy?" },
         { id: 4, question: "What are goals or opportunities you think yearn should focus on?" }
-      ]
+      ],
+      source_code: 'https://github.com/murderteeth/robofoxy'
     },
     user: {
       user_id: user.id, 
