@@ -12,7 +12,7 @@ function systemState(user: User) {
     global: {
       questions: [
         { id: 1, question: "What is yearn's vision?" },
-        { id: 2, question: "What are goals or opportunities you think yearn should focus on?" }
+        { id: 2, question: "What are strategic goals or opportunities you think yearn should focus on?" }
       ],
       source_code: 'https://github.com/murderteeth/robofoxy'
     },
